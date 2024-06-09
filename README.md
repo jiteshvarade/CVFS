@@ -1,11 +1,3 @@
-To create a comprehensive GitHub README file for your project "Customized Virtual File System (CVFS)", I will review the content of the provided `CVFS.cpp` file. This will help me understand the key features and functionality of your project.
-
-Let's start by examining the `CVFS.cpp` file to extract relevant details. I'll read the file and analyze its content.
-
-Based on the initial review of the `CVFS.cpp` file, the project involves creating a Customized Virtual File System (CVFS) to understand file system internals. The file contains various structures and functions for managing inodes, superblocks, file tables, and user file descriptor tables (UFDT). It also includes a `man` function to display command descriptions and usage.
-
-Here's a draft for the README file:
-
 ---
 
 # Customized Virtual File System (CVFS)
@@ -105,5 +97,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 This project was created by Jitesh Anil Varade as an educational tool to understand file system internals.
 
 ---
-
-Feel free to modify this draft to better suit your project's specifics and any additional details you may want to include.
