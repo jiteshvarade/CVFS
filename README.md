@@ -80,6 +80,82 @@ Run the compiled executable:
   delete testfile
   ```
 
+Sure, I'll provide detailed explanations of the functions without showing the code. These descriptions will help users understand the purpose and usage of each function in your Customized Virtual File System (CVFS) project.
+
+---
+
+### Function Descriptions
+
+#### `man`
+**Usage:** `man(command_name)`
+**Description:** Displays a manual entry for the specified command, including a description and usage syntax. If the command is not recognized, an error message is shown.
+
+#### `InitializeSuperBlock`
+**Usage:** `InitializeSuperBlock()`
+**Description:** Initializes the superblock of the virtual file system, setting the total number of inodes and marking all inodes as free.
+
+#### `CreateDILB`
+**Usage:** `CreateDILB()`
+**Description:** Creates the Disk Inode List Block (DILB), which is a linked list of inodes. This function sets up the inodes required for managing files in the virtual file system.
+
+#### `CreateFile`
+**Usage:** `CreateFile(name, permission)`
+**Description:** Creates a new regular file with the given name and permission. The permissions can be read, write, or both. If successful, it returns the file descriptor of the newly created file.
+
+#### `rm_File`
+**Usage:** `rm_File(name)`
+**Description:** Removes a file with the specified name. It decreases the link count of the inode and, if no links remain, it frees the inode and associated resources.
+
+#### `ReadFile`
+**Usage:** `ReadFile(fd, buffer, size)`
+**Description:** Reads data from an open file, specified by its file descriptor (`fd`), into a buffer. The function reads up to `size` bytes from the current read offset.
+
+#### `WriteFile`
+**Usage:** `WriteFile(fd, buffer, size)`
+**Description:** Writes data to an open file, specified by its file descriptor (`fd`), from a buffer. The function writes up to `size` bytes to the current write offset.
+
+#### `OpenFile`
+**Usage:** `OpenFile(name, mode)`
+**Description:** Opens an existing file with the given name in the specified mode (read, write, or both). If successful, it returns the file descriptor of the opened file.
+
+#### `CloseFile`
+**Usage:** `CloseFile(fd)`
+**Description:** Closes an open file specified by its file descriptor (`fd`). It decreases the reference count of the inode and, if no references remain, it frees the file table entry.
+
+#### `CloseAllFiles`
+**Usage:** `CloseAllFiles()`
+**Description:** Closes all open files, resetting the file table and freeing associated resources.
+
+#### `LseekFile`
+**Usage:** `LseekFile(fd, offset, whence)`
+**Description:** Changes the file offset for an open file specified by its file descriptor (`fd`). The `whence` parameter specifies how the offset should be interpreted (start, current, or end).
+
+#### `ls`
+**Usage:** `ls()`
+**Description:** Lists all files in the virtual file system, displaying their names and other relevant details.
+
+#### `stat`
+**Usage:** `stat(name)`
+**Description:** Displays information about a file specified by its name, such as its size, permissions, and inode number.
+
+#### `fstat`
+**Usage:** `fstat(fd)`
+**Description:** Displays information about an open file specified by its file descriptor (`fd`), similar to the `stat` function.
+
+#### `truncate`
+**Usage:** `truncate(name)`
+**Description:** Truncates a file to zero length, effectively removing all its data while keeping the file structure intact.
+
+#### `Get_Inode`
+**Usage:** `Get_Inode(name)`
+**Description:** Retrieves the inode associated with the specified file name. This is a utility function used internally to manage file metadata.
+
+#### `GetFDFromName`
+**Usage:** `GetFDFromName(name)`
+**Description:** Retrieves the file descriptor for a file specified by its name. This is a utility function used internally to handle file operations.
+
+---
+
 ### Project Structure
 
 - **`CVFS.cpp`**: The main source file containing the implementation of the virtual file system.
